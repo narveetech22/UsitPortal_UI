@@ -1,0 +1,157 @@
+<main id="main" class="main" >
+    <!-- <div class="card-footer" *ngIf="showAlert">
+        <div class="alert alert-success">
+            <strong>{{message}}</strong>
+            <button (click)="closeAlert()" class="close">
+                <span aria-hidden="true" >&times;</span>
+            </button>
+        </div>
+    </div> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div class="card-footer" *ngIf="showAlert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+            </button>
+        </div>
+    </div>
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">sales</li>
+             <li class="breadcrumb-item active">Consultants</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+           <div class="col-md-12">
+                <div class="card">
+                   <div class="card-body">
+
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <div class="container-fluid">
+                            <h5 class="card-title">All Consultants</h5>
+                            &nbsp;&nbsp;<h5 class="card-title float-right"><a style="color:#012970;margin-left: 350px;" [routerLink]="['/register-consultant']">( Add new Consultant)</a></h5>
+                            <!-- <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                                <span class="navbar-toggler-icon"></span>
+                            </button> -->
+                            <div class="collapse navbar-collapse" id="navbarCollapse">
+                                <!-- <div class="navbar-nav">
+                                    <h5 class="card-title float-right" style="margin-left: 470px;"><a [routerLink]="['/register-consultant']">new</a></h5>
+                                </div> -->
+                                <div class="navbar-nav ms-auto">
+                                    <!-- <form class="search-form d-flex align-items-center" method="POST" action="#"> 
+                                        <input type="text" #query name="query" placeholder="Search" title="Enter search keyword"> 
+                                        <button type="submit" title="Search" (click)="search(query.value)"><i class="bi bi-search"></i></button>
+                                    </form> -->
+                                    <div class="input-group mb-3">
+                                        <form class="search-form d-flex align-items-center" method="POST" action="#"> 
+                                         <input type="text" #query name="query" class="form-control input-sm" placeholder="Username"  placeholder="Search" title="Enter search keyword"
+                                         aria-label="query" aria-describedby="basic-addon1">
+                                         <button type="submit" title="Search" class="input-group-text" (click)="search(query.value)"><i class="bi bi-search"></i> </button>
+                                         </form>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <table class="table table-light table-bordered ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Exp</th>
+                                        <th>Technology</th>
+                                        <th>Visa</th>
+                                        <th>Current Location</th>
+                                        <th>Relocation</th>
+                                        <th>Rate</th>
+                                        <th>Priority</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let s of consultant | paginate
+                                    : {
+                                        itemsPerPage: tableSize,
+                                        currentPage: page,
+                                        totalItems: count
+                                      };
+                                let i = index">
+                                        <td>{{s.fullname}}</td>
+                                        <td>{{s.totexp}}</td>
+                                        <td>{{s.techname}}</td>
+                                        <td>{{s.visatype}}</td>
+                                        <td>{{s.currentlocation}}</td>
+                                        <td>{{s.relocate}}</td>
+                                        <td>{{s.hourlyrate}}</td>
+                                        <td>{{s.priority}}</td>
+                                        <td>
+                                            <ng-container *ngIf="s.status == 'Active'; then trueCondition else elseTemplate"></ng-container>
+                                                <ng-template #trueCondition>
+                                                    <span class="badge bg-info text-dark"  (click)="edit(s)" data-bs-toggle="modal" data-bs-target="#verticalycentered">{{s.status}}</span>
+                                                </ng-template>
+                                                <ng-template #elseTemplate>
+                                                    <span class="badge bg-danger" (click)="edit(s)" data-bs-toggle="modal" data-bs-target="#verticalycentered">{{s.status}}
+                                                    </span>
+                                                </ng-template>
+                                        </td>
+                                        <td><a [routerLink]="['/edit-consultant',s.sid]"> <i class="ri-edit-2-fill"></i> </a>&nbsp;
+                                            <!-- <button class="btn btn-danger" (click)="deleteVendor(s.id)">Delete</button> -->
+                                            <a href="" (click)="deleteEntity(s.sid)"> <i style="color:maroon" class="ri-delete-bin-fill "></i> </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pull-right"></div>
+                        <div class="pull-right" style="text-align: center;">
+                            <pagination-controls
+                                previousLabel="Prev"
+                                nextLabel="Next"
+                                (pageChange)="onTableDataChange($event)" >
+                                </pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </section>
+ </main>
+
+
+ <div class="modal fade" id="verticalycentered" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title">Please Enter Remarks</h5>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="registerForm">
+                <fieldset>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                     <textarea required [(ngModel)]="consultant2.remarks"  class="form-control rounded-2" placeholder="Please write remarks" 
+                                     formControlName="remarks" [ngClass]="{ 'is-invalid': submitted && f.remarks.errors }"  id="othdet" style="height: 80px;"></textarea>
+                            </div>
+                            <div *ngIf="submitted && f.remarks.errors" class="invalid-feedback">
+                                <div *ngIf="f.remarks.errors.required">Please Enter Reason</div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            </div>
+          <div class="modal-footer"> <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> 
+            <button type="button" class="btn btn-primary" (click)="UpdateVendor()"  data-bs-dismiss="modal">Update</button></div>
+       </div>
+    </div>
+ </div>

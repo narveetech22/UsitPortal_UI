@@ -1,0 +1,309 @@
+<!-- <main id="main" class="main">
+    <div class="pagetitle">
+     
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Sales</li>
+             <li class="breadcrumb-item active">Consulatant</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">New consultant</h5>
+                   <form >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill" [(ngModel)]="consultant.fullname" id="fullname" 
+                                    placeholder="Full Name *" name="fullname" >
+                                
+                                </div>
+                                 <div class="col-md-12"> 
+                                    <label for="email" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.email" name="email" id="email" placeholder="Email *"
+                                    class="form-control rounded-pill" type="text"  >
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="uscontactnumber" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.uscontactnumber" id="uscontactnumber" placeholder="Contact Number" name="uscontactnumber" 
+                                    class="form-control rounded-pill" type="text" >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="visastatus" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.visastatus" name="visastatus" id="visastatus" class="form-select rounded-pill"
+                                    >
+                                        <option Value="1">H1B</option> 
+                                        <option Value="2">GC</option>
+                                      </select>
+                                   
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                  
+                                    <input  required [(ngModel)]="consultant.totexp" id="totexp" name="totexp" placeholder="Total Experience" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="currentlocation" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.currentlocation" id="currentlocation" name="currentlocation" placeholder="Current Location" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+
+                                <div class="col-md-12"> 
+                                    <label for="technology" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.technology" name="technology" id="technology" class="form-select rounded-pill"
+                                    >
+                                        <option Value="1">Net technology</option> 
+                                        <option Value="2">Java Technology</option>
+                                      </select>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.additionalskills" class="form-control rounded-2" placeholder="Other Details" 
+                                     id="othdet" style="height: 100px;"></textarea>
+                                    
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                            <div class="col-md-12"> 
+                                <label for="currentlocation" class="form-label"></label> &nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype" id="exampleRadios1" value="C2C" >
+                                <label class="form-check-label" for="exampleRadios1">C2C</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype" id="exampleRadios1" value="1099" >
+                                <label class="form-check-label" for="exampleRadios1">1099</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" id="exampleRadios1" value="W2" >
+                                <label class="form-check-label" for="exampleRadios1">W2</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" id="exampleRadios1" value="Full Time" >
+                                <label class="form-check-label" for="exampleRadios1">Full Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" id="exampleRadios1" value="C2H" >
+                                <label class="form-check-label" for="exampleRadios1">C2H</label>
+                            </div>
+                            <div class="col-md-12"> 
+                                <label for="hourlyrate2" class="form-label"></label> 
+                                <input type="text"  [(ngModel)]="consultant.hourlyrate" id="hourlyrate2" name="hourlyrate" placeholder="Hourly rate" class="form-control rounded-pill" >
+                               
+                            </div>
+
+                            <div class="col-md-12"> 
+                                <label for="summary" class="form-label"></label> 
+                                <textarea required [(ngModel)]="consultant.summary" class="form-control rounded-2" placeholder="Summary" 
+                                 id="summary" style="height: 100px;"></textarea>
+                            </div>
+
+                            <div class="col-md-12"> 
+                                <label for="priority" class="form-label"></label> 
+                                <select required  [(ngModel)]="consultant.priority" name="priority" id="priority" class="form-select rounded-pill"
+                                >
+                                    <option Value="p1">priority one</option> 
+                                    <option Value="p2">priority two</option>
+                                  </select>
+                            </div>
+
+                            <div class="col-md-12"  style="margin-top: 30px;"> 
+                                <label  class="form-label"></label> 
+                                <label  class="form-label"></label> 
+                                <label  class="form-label"></label> 
+                                <label for="currentlocation" class="form-label"></label> &nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.relocate" type="radio" name="relocate" id="exampleRadios1" value="No" >
+                                <label class="form-check-label" for="exampleRadios1">No</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.relocate" type="radio" name="relocate" id="exampleRadios1" value="Yes" >
+                                <label class="form-check-label" for="exampleRadios1">yes</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.relocate"  name="relocate" id="exampleRadios1" value="Other" >
+                                <label class="form-check-label" for="exampleRadios1">Other</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+
+
+                            </div>
+                        </div>
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a href="https://narveetech.com/usit/recruiting/allvms" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="updateConsultant()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main> -->
+
+
+ <main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Sales</li>
+             <li class="breadcrumb-item active">Consulatant</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">New consultant</h5>
+                   <form >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill"  id="fullname" 
+                                    placeholder="Full Name *" name="fullname" [(ngModel)]="consultant.fullname">
+                                   
+                                </div>
+                                
+                                 <div class="col-md-12"> 
+                                    <label for="email" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.email" name="email" id="email" placeholder="Email *"
+                                    class="form-control rounded-pill" type="text"   >
+                                   
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="uscontactnumber" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.uscontactnumber" id="uscontactnumber" placeholder="Contact Number" name="uscontactnumber" 
+                                    class="form-control rounded-pill" type="text"  >
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="visastatus" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.visastatus" name="visastatus" id="visastatus" class="form-select rounded-pill"
+                                     >
+                                     <option Value="">Select Visa Status</option> 
+                                        <option Value="1">H1B</option> 
+                                        <option Value="2">GC</option>
+                                      </select>
+                                    
+                                </div>
+                                 
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.totexp" id="totexp" name="totexp" placeholder="Total Experience" 
+                                    class="form-control rounded-pill" type="text"   >
+                                </div>
+
+                               <div class="col-md-12"> 
+                                    <label for="currentlocation" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.currentlocation" id="currentlocation" name="currentlocation" placeholder="Current Location" 
+                                    class="form-control rounded-pill" type="text"   >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <div>
+                                      <label  class="form-label">Relocation</label> <br>
+                                      <input class="form-check-input" [(ngModel)]="consultant.relocate"  type="radio"  name="relocate"  value="Open" checked="true">
+                                      <label class="form-check-label" >Open</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                      <input class="form-check-input" [(ngModel)]="consultant.relocate"  type="radio" name="relocate"  value="No" >
+                                      <label class="form-check-label" >No</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <input class="form-check-input" type="radio" [(ngModel)]="consultant.relocate"  name="relocate"  value="Other" >
+                                      <label class="form-check-label" >Other</label>
+                                 
+                                    </div>
+                                </div>
+                                 <div class="col-md-12"> 
+                                    <label for="technology" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.technology" name="technology" id="technology" class="form-select rounded-pill"
+                                    >
+                                        <option Value="1">Net technology</option> 
+                                        <option Value="2">Java Technology</option>
+                                      </select>
+                                   
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.additionalskills" class="form-control rounded-2" placeholder="Other Details" 
+                                      id="othdet" style="height: 100px;" name="additionalskills"></textarea>
+                                </div>  
+                            </div>
+
+
+                            <div class="col-md-6">
+                              <div class="col-md-12"> 
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype"   value="C2C" >
+                                <label class="form-check-label" >C2C</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype"   value="1099" >
+                                <label class="form-check-label" >1099</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype"   value="W2" >
+                                <label class="form-check-label" >W2</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype"   value="Full Time" >
+                                <label class="form-check-label" >Full Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype"   value="C2H" >
+                                <label class="form-check-label" >C2H</label>
+                             </div>
+                               
+                               <div class="col-md-12"> 
+                                    <label for="hourlyrate2" class="form-label"></label> 
+                                    <input type="text"  [(ngModel)]="consultant.hourlyrate" id="hourlyrate2"  name="hourlyrate" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="summary" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.summary" class="form-control rounded-2" placeholder="Summary"   name="summary"
+                                    id="summary" style="height: 100px;"></textarea>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="resumeFileName" class="form-label">Upload Resume</label> 
+                                    <input type="file"   [(ngModel)]="consultant.resumeFileName" id="resumeFileName"  name="resumeFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="h1bFileName" class="form-label">Upload H1B</label> 
+                                    <input type="file"  [(ngModel)]="consultant.h1bFileName" id="h1bFileName"  name="h1bFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="dlFileName" class="form-label">Upload DL</label> 
+                                    <input type="file"  [(ngModel)]="consultant.dlFileName" id="dlFileName"  name="dlFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="priority" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.priority" name="priority" id="priority" class="form-select rounded-pill"
+                                   >
+                                        <option Value="p1">priority one</option> 
+                                        <option Value="p2">priority two</option>
+                                    </select>
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="anyrestriction" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.anyrestriction" class="form-control rounded-2" 
+                                    placeholder="Any Restrictions"  name="anyrestriction"
+                                    id="anyrestriction" style="height: 100px;"></textarea>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a (click)="registerForm.reset()" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="updateConsultant()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

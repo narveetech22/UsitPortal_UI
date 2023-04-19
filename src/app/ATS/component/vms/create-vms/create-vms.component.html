@@ -1,0 +1,125 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">vms</li>
+             <li class="breadcrumb-item active">Add new Vms</li>
+          </ol>
+       </nav>-
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Add new Vendor</h5>
+                   <!-- <div *ngIf="message!==''"> -->
+                    <p class="text-center small danger" *ngIf="message!==''"><b style="color:red">Vendor Already Exists</b></p>
+                    <!-- <div *ngIf="message!==''" class="invalid-feedback">Vendor Already Exists</div> -->
+                    <div class="text-center small danger" *ngIf="message==''"><br><br></div>
+                   <!-- </div> -->
+                   <form [formGroup]="registerForm" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-6">
+                                
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill" [(ngModel)]="vendor.company_name" id="company_name" 
+                                    placeholder="Company Name" name="company_name"
+                                    formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.companyName.errors.required">Company Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="recruiter_name" class="form-label"></label> 
+                                    <input  required [(ngModel)]="vendor.recruiter_name" id="recruiter_name" placeholder="Recruiter Name" name="recruiter_name" 
+                                    class="form-control rounded-pill" type="text" formControlName="Recruiter" [ngClass]="{ 'is-invalid': submitted && f.Recruiter.errors }">
+                                    <div *ngIf="submitted && f.Recruiter.errors" class="invalid-feedback" >
+                                        <div *ngIf="f.Recruiter.errors.required">Recruiter Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="headQuarters" class="form-label"></label> 
+                                    <input  required [(ngModel)]="vendor.headQuarters" formControlName="headQuarters" id="headQuarters" name="headQuarters" placeholder="HeadQuaters" 
+                                    class="form-control rounded-pill" type="text">
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="vendortype" class="form-label"></label> 
+                                    <select required  [(ngModel)]="vendor.vendortype" name="vendortype" id="vendortype" class="form-select rounded-pill"
+                                     formControlName="vendortypes" [ngClass]="{ 'is-invalid': submitted && f.vendortypes.errors }">
+                                        <option Value="Primary Vendor">Primary Vendor</option> 
+                                        <option Value="Implementation Partner">Implementation Partner</option>
+                                      </select>
+                                    <div *ngIf="submitted && f.vendortypes.errors" class="invalid-feedback">
+                                        <div *ngIf="f.vendortypes.errors.required">Vendor Type is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-sm-12"> 
+                                    <input maxlength="10"  required [(ngModel)]="vendor.cp_mobile" placeholder="Contact Number" name="cp_mobile" id="cp_mobile" class="form-control rounded-pill" type="text" formControlName="Contact" [ngClass]="{ 'is-invalid': submitted && f.Contact.errors }">
+                                    <div *ngIf="submitted && f.Contact.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Contact.errors.required">Contact Number is required</div>
+                                        <div *ngIf="f.Contact.errors.pattern">Enter only number.</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="inputName5" class="form-label"></label> 
+                                    <input  required [(ngModel)]="vendor.cpemail" name="cpemail" id="cpemail" placeholder="Email"
+                                    class="form-control rounded-pill" type="text"  formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="vendor.details" class="form-control rounded-2" placeholder="Other Details"  formControlName="othdetails"
+                                    id="othdet" style="height: 100px;"></textarea>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <div style="width:50%">
+                                        <ng-multiselect-dropdown name="drop" formControlName="drop"
+                                            [settings]="dropdownSettings"
+                                            [data]="dropdownList">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <div style="width:50%">
+                                        <ng-multiselect-dropdown name="drop2" formControlName="drop2"
+                                        [placeholder]="'Select Your Item'"
+                                            [settings]="dropdownSettings2"
+                                            [data]="techdata">
+                                        </ng-multiselect-dropdown>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a (click)="registerForm.reset()" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="saveVendor()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

@@ -1,0 +1,181 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Employee</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title"> New Employee</h5>
+                   <form  [formGroup]="registerForm"><!--[formGroup]="registerForm"-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="ng-autocomplete">
+                                    <ng-autocomplete
+                                      [data]="countries"
+                                      [searchKeyword]="keyword"
+                                      placeHolder="Enter the Country Name"
+                                      (selected)='selectEvent($event)'
+                                      (inputChanged)='onChangeSearch($event)'
+                                      (inputFocused)='onFocused($event)'
+                                      historyIdentifier="countries"
+                                      [itemTemplate]="itemTemplate"
+                                      [notFoundTemplate]="notFoundTemplate">
+                                    </ng-autocomplete>
+                                  
+                                    <ng-template #itemTemplate let-item>
+                                      <a [innerHTML]="item.name"></a>
+                                      <!-- <input type="text" [innerHTML]="item.name"> -->
+                                    </ng-template>
+                                  
+                                    <ng-template #notFoundTemplate let-notFound>
+                                      <div [innerHTML]="notFound"></div>
+                                    </ng-template>
+                                  </div>  
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill"  id="fullname" 
+                                    placeholder="Name (Full Legal Name) *" name="fullname" [(ngModel)]="employee.fullname"
+                                    formControlName="fname" [ngClass]="{ 'is-invalid': submitted && frm.fname.errors }"  >
+                                    <div *ngIf="submitted && frm.fname.errors" class="invalid-feedback" >
+                                        <div *ngIf="frm.fname.errors.required">Full Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="pseudoname" 
+                                    placeholder="Psudo Name *" name="pseudoname" [(ngModel)]="employee.pseudoname"
+                                    formControlName="pname" [ngClass]="{ 'is-invalid': submitted && frm.pname.errors }"
+                                    >
+                                    <div *ngIf="submitted && frm.pname.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.pname.errors.required">Psuedo Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="email" 
+                                    placeholder="Email *" name="email" [(ngModel)]="employee.email"
+                                    formControlName="email" [ngClass]="{ 'is-invalid': submitted && frm.email.errors }"
+                                    >
+                                    <div *ngIf="submitted && frm.email.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.email.errors.required">Email is required</div>
+                                        <div *ngIf="frm.email.errors.email">Please Enter a Valid Email Address</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input maxlength="10" type="text" required  class="form-control rounded-pill"  id="personalcontactnumber" 
+                                    placeholder="Personal Contact Number *" name="personalcontactnumber" [(ngModel)]="employee.personalcontactnumber"
+                                     formControlName="pcont" [ngClass]="{ 'is-invalid': submitted && frm.pcont.errors }">
+                                    <div *ngIf="submitted && frm.pcont.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.pcont.errors.required">Personal Contact is required</div>
+                                        <div *ngIf="frm.pcont.errors.pattern">Enter only number.</div>
+                                    </div>
+                                </div>
+
+                               
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" maxlength="10" class="form-control rounded-pill"  id="companycontactnumber" 
+                                    placeholder="Company Contact Number" name="companycontactnumber" [(ngModel)]="employee.companycontactnumber"
+                                    formControlName="ccont" [ngClass]="{ 'is-invalid': submitted && frm.ccont.errors }">
+                                    <div *ngIf="submitted && frm.ccont.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.ccont.errors.required">Company Contact is required</div>
+                                        <div *ngIf="frm.ccont.errors.pattern">Enter only number.</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="designation" 
+                                    placeholder="Designation" name="designation" [(ngModel)]="employee.designation"
+                                    formControlName="desig" [ngClass]="{ 'is-invalid': submitted && frm.desig.errors }">
+                                    <div *ngIf="submitted && frm.desig.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.desig.errors.required">Designation is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label>Roles</label>
+                                    <div class="form-group">
+                                        <select path="role" id="role"
+                                            class="form-control form-control-sm select2"
+                                            multiple="multiple">
+                                            <!-- <frm:options items="${roledrop}" /> -->
+                                            <option value="">Select Role</option>
+                                     <option  value="1"  >Super Administrator</option>
+                                     <option  value="2"  >Administrator</option>
+                                     <option  value="3"  > Sales Manager</option>
+                                     <option  value="4"  > Recruiting Manager</option>
+                                     <option  value="5"  > Team Leader Sales</option>
+                                     <option  value="6"  > Team Leader Recruiting		</option>
+                                     <option  value="7"  > Sales Executive</option>
+                                     <option  value="8"  > Recruiter	</option>
+                                     <option  value="9"  > Guest	</option>
+                                     <option  value="10" > Independent	</option>
+                                     <option  value="11" > OPT Recruiter	</option>
+                                     <option  value="12" > Vendor</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+                                <div class="col-md-12"> 
+                                    <label for="role" class="form-label"></label> 
+                                    <select required  [(ngModel)]="employee.roleid" name="role" id="role" class="form-select rounded-pill"
+                                     formControlName="rolerr" [ngClass]="{ 'is-invalid': submitted && frm.rolerr.errors }">
+                                     <option value="">Select Role</option>
+                                     <option  value="1"  >Super Administrator</option>
+                                     <option  value="2"  >Administrator</option>
+                                     <option  value="3"  > Sales Manager</option>
+                                     <option  value="4"  > Recruiting Manager</option>
+                                     <option  value="5"  > Team Leader Sales</option>
+                                     <option  value="6"  > Team Leader Recruiting		</option>
+                                     <option  value="7"  > Sales Executive</option>
+                                     <option  value="8"  > Recruiter	</option>
+                                     <option  value="9"  > Guest	</option>
+                                     <option  value="10" > Independent	</option>
+                                     <option  value="11" > OPT Recruiter	</option>
+                                     <option  value="12" > Vendor</option>
+                                      </select>
+                                    <div *ngIf="submitted && frm.rolerr.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.rolerr.errors.required">Role is required</div>
+                                    </div>
+                                    <!-- <select required [(ngModel)]="employee.role"  name="role" id="role" class="form-select rounded-pill"
+                                    formControlName="rolerr" [ngClass]="{ 'is-invalid': submitted && frm.rolerr.errors }">
+                                    <div *ngIf="submitted && frm.rolerr.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.rolerr.errors.required">Role is required</div>
+                                    </div> -->
+                                    
+                                      <!-- </select> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a (click)="registerForm.reset()" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="saveEmployee()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

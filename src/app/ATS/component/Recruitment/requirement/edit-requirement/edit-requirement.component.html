@@ -1,0 +1,128 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Recruiting</li>
+             <li class="breadcrumb-item active">Requirements</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Add new Requirement</h5>
+                   <form  >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input  required [(ngModel)]="requirement.postedOn" id="cat" name="postedOn" placeholder="Posted On" 
+                                    class="form-control rounded-pill" type="text"  >
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="vendor" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.vendor" id="vendor" placeholder="Implementation Partner / Vendor *" name="vendor" 
+                                    class="form-control rounded-pill" type="text" >
+                                  
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="job" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.jobTitle" id="job" name="jobTitle" placeholder="Job Title *" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="cat" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.category" id="cat" name="category" placeholder="category" 
+                                    class="form-control rounded-pill" type="text"  >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="inputName5" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.email" name="email" id="inputName5" placeholder="Email"
+                                    class="form-control rounded-pill" type="text"  >
+                                  
+                                </div>
+
+                                <div class="col-sm-12"> 
+                                    <label for="phone" class="form-label"></label> 
+                                        <input maxlength="10"  required [(ngModel)]="requirement.phoneNo" placeholder="Contact Number" name="phoneNo" id="phone" class="form-control rounded-pill" >
+                                    </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="col-md-12"> 
+                                    <input  required [(ngModel)]="requirement.location" id="location" name="location" placeholder="Location *" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="jobexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.jobExperience" id="jobexp" name="jobExperience" 
+                                    placeholder="Job Experience" 
+                                    class="form-control rounded-pill" type="text"   >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="skills" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.jobSkills" id="skills" name="jobSkills" 
+                                    placeholder="Job skills" 
+                                    class="form-control rounded-pill" type="text"  >
+                                   
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="emptype" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.employmentType" id="emptype" name="employmentType" 
+                                    placeholder="Employment type *" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="sal" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.salary" id="sal" name="salary" 
+                                    placeholder="Salary" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="src" class="form-label"></label> 
+                                    <input  required [(ngModel)]="requirement.source" id="src" name="source" 
+                                    placeholder="Job source" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="col-md-12"> 
+                                    <label for="jd" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="requirement.jobDescription" class="form-control rounded-2" placeholder="Job Description" 
+                                    id="jd" style="height: 100px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a href="https://narveetech.com/usit/recruiting/allvms" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;<!--(click)="saveVendor()"-->
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="updateEntity()">Update</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

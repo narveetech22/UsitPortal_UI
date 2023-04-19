@@ -1,0 +1,112 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">vms</li>
+             <li class="breadcrumb-item active">Update Vms</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">Update Vendor</h5>
+                   <form >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill" [(ngModel)]="vendor.company_name" id="company_name" 
+                                    placeholder="Company Name" name="company_name">
+                                    <!-- formControlName="companyName" [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }">
+                                    <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.companyName.errors.required">Company Name is required</div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="recruiter_name" class="form-label"></label> 
+                                    <input  required [(ngModel)]="vendor.recruiter_name" id="recruiter_name" placeholder="Recruiter Name" name="recruiter_name" 
+                                    class="form-control rounded-pill" type="text">
+                                    <!-- < formControlName="Recruiter" [ngClass]="{ 'is-invalid': submitted && f.Recruiter.errors }">
+                                    <div *ngIf="submitted && f.Recruiter.errors" class="invalid-feedback" >
+                                        <div *ngIf="f.Recruiter.errors.required">Recruiter Name is required</div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="headQuarters" class="form-label"></label> 
+                                    <!-- <input type="text" class="form-control rounded-pill" id="inputName5" placeholder="HeadQuaters">  -->
+                                    <input  required [(ngModel)]="vendor.headQuarters" id="headQuarters" name="headQuarters" placeholder="HeadQuaters" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    <!-- formControlName="HeadQuaters" [ngClass]="{ 'is-invalid': submitted && f.HeadQuaters.errors }">
+                                    <div *ngIf="submitted && f.HeadQuaters.errors" class="invalid-feedback">
+                                        <div *ngIf="f.HeadQuaters.errors.required">HeadQuaters is required</div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="vendortype" class="form-label"></label> 
+                                    <!-- <select id="inputState" class="form-select rounded-pill">
+                                        <option selected>Please Select Vendor Type</option>
+                                        <option>...</option>
+                                    </select> -->
+
+                                    <select required  [(ngModel)]="vendor.vendortype" name="vendortype" id="vendortype" class="form-select rounded-pill"
+                                     >
+                                        <option  selected>---Please select---</option> 
+                                        <option Value="Primary Vendor">Primary Vendor</option> 
+                                        <option Value="Implementation Partner">Implementation Partner</option>
+                                      </select>
+                                    <!-- <div *ngIf="submitted && f.vendortypes.errors" class="invalid-feedback">
+                                        <div *ngIf="f.vendortypes.errors.required">Vendor Type is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-sm-12"> 
+                                <!-- <label for="inputName5" class="form-label"></label>  -->
+                                    <!-- <input type="text" class="form-control rounded-pill" id="inputName5" placeholder="Contact Number"> -->
+                                    <input maxlength="10"  required [(ngModel)]="vendor.cp_mobile" placeholder="Contact Number" name="cp_mobile" id="cp_mobile" class="form-control rounded-pill" type="text" >
+                                    <!-- formControlName="Contact" [ngClass]="{ 'is-invalid': submitted && f.Contact.errors }">
+                                    <div *ngIf="submitted && f.Contact.errors" class="invalid-feedback">
+                                        <div *ngIf="f.Contact.errors.required">Contact Number is required</div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="inputName5" class="form-label"></label> 
+                                    <!-- <input type="text" class="form-control rounded-pill" id="inputName5" placeholder="Email"> -->
+                                    <input  required [(ngModel)]="vendor.cpemail" name="cpemail" id="cpemail" placeholder="Email"
+                                    class="form-control rounded-pill" type="text" >
+                                     <!-- formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <textarea   [(ngModel)]="vendor.details" class="form-control rounded-2" placeholder="Other Details" 
+                                     id="othdet" style="height: 100px;" name="details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a [routerLink]="['/list-vms']" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="updateVendor()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

@@ -1,0 +1,83 @@
+<main id="main" class="main" >
+    <!-- <div class="card-footer" *ngIf="showAlert">
+        <div class="alert alert-success">
+            <strong>{{message}}</strong>
+            <button (click)="closeAlert()" class="close">
+                <span aria-hidden="true" >&times;</span>
+            </button>
+        </div>
+    </div> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div class="card-footer" *ngIf="showAlert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert"> 
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="closeAlert()">
+            </button>
+        </div>
+    </div>
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">vms</li>
+             <li class="breadcrumb-item active">List Vms</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+           <div class="col-md-12">
+                <div class="card">
+                   <div class="card-body">
+                        <ul class="nav navbar-right ">
+                            <li>
+                                <h5 class="card-title">All VMS</h5>
+                            </li>
+                            <li style="margin-left:500px">
+                                <h5 class="card-title float-right">All Vms Records</h5>
+                            </li>
+
+                            <li style="margin-left:100px">
+                                <h5 class="card-title float-right"><a [routerLink]="['/register-requirement']"><i class="ri-add-circle-line"></i>new</a></h5>
+                            </li>
+                            <!-- <li>
+                                <h5 class="card-title">All VMS rrr</h5>
+                            </li> -->
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <table class="table table-light table-bordered ">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <!-- <th>Date</th> -->
+                                        <th>Job Title</th>
+                                        <th>Location</th>
+                                        <th>Ip/Vendor</th>
+                                        <th>Employment Type</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let s of requirement">
+                                        <!-- <td>{{s.postedOn}}</td> -->
+                                        <td>{{s.jobTitle}}</td>
+                                        <td>{{s.location}}</td>
+                                        <td>{{s.vendor}}</td>
+                                        <td>{{s.employmentType}}</td>
+                                        <td><a [routerLink]="['/edit-requirement',s.recruiterId]"> <i class="ri-edit-2-fill"></i> </a>&nbsp;
+                                            <!-- <button class="btn btn-danger" (click)="deleteVendor(s.id)">Delete</button> -->
+                                            <a href="" (click)="deleterecord(s.recruiterId)"> <i style="color:maroon" class="ri-delete-bin-fill "></i> {{s.recruiterId}}</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </section>
+ </main>
+
+

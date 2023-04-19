@@ -1,0 +1,127 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Sales</li>
+             <li class="breadcrumb-item active">Consulatant</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">New consultant</h5>
+                   <form   >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <label for="visastatus" class="form-label"></label> 
+                                    <select required  [(ngModel)]="sales.consultantid" name="consultantid" id="consultantid" class="form-select rounded-pill" >
+                                        <option Value="1">H1B</option> 
+                                        <option Value="2">GC</option>
+                                      </select>
+                                     
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.positiontitle" id="positiontitle" name="positiontitle" placeholder="Position Title" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.projectlocation" id="projectlocation" name="projectlocation" placeholder="Project Location *" 
+                                    class="form-control rounded-pill" type="text"  >
+                                   
+                                </div>
+                               
+                                <div class="col-md-12" style="margin-top:40px"> 
+                                    <label for="currentlocation" class="form-label"></label> &nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="sales.ratetype" type="radio" name="ratetype" id="exampleRadios1" value="C2C" >
+                                <label class="form-check-label" for="exampleRadios1">C2C</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="sales.ratetype" type="radio" name="ratetype" id="exampleRadios1" value="1099" >
+                                <label class="form-check-label" for="exampleRadios1">1099</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="sales.ratetype"  name="ratetype" id="exampleRadios1" value="W2" >
+                                <label class="form-check-label" for="exampleRadios1">W2</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="sales.ratetype"  name="ratetype" id="exampleRadios1" value="Full Time" >
+                                <label class="form-check-label" for="exampleRadios1">Full Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="sales.ratetype"  name="ratetype" id="exampleRadios1" value="C2H" >
+                                <label class="form-check-label" for="exampleRadios1">C2H</label>
+                            </div>
+                                
+                                 <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.subrate" id="subrate" name="subrate" placeholder="Submission rate" 
+                                    class="form-control rounded-pill" type="text" >
+                                   
+                                </div>
+
+                                 <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.endclient" id="endclient" name="endclient" placeholder="End Client" 
+                                    class="form-control rounded-pill" type="text"  >
+                                   
+                                </div>
+
+                                
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.partner" id="partner" name="partner" placeholder="Implementation Partner / Vendor" 
+                                    class="form-control rounded-pill" type="text"  >
+                                   
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.vendor" id="vendor" name="vendor" placeholder="Vendor" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.contactperson" id="contactperson" name="contactperson" placeholder="Contact Person Name *" 
+                                    class="form-control rounded-pill" type="text" >
+                                    
+                                </div>
+
+
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.contactnumber" id="contactnumber" name="contactnumber" placeholder="Contact Number" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="sales.contactemail" id="contactemail" name="contactemail" placeholder="Email *" 
+                                    class="form-control rounded-pill" type="text"  >
+                                    
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a href="https://narveetech.com/usit/recruiting/allvms" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit"  (click)="updateEntity()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

@@ -1,0 +1,176 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Sales</li>
+             <li class="breadcrumb-item active">Consulatant</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title">New consultant</h5>
+                   <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill"  id="fullname" 
+                                    placeholder="Full Name *" name="fullname" [(ngModel)]="consultant.fullname"
+                                    formControlName="fullname" [ngClass]="{ 'is-invalid': submitted && frm.fullname.errors }">
+                                    <div *ngIf="submitted && frm.fullname.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.fullname.errors.required">Fullname Name is required</div>
+                                    </div>
+                                </div>
+                                
+                                 <div class="col-md-12"> 
+                                    <label for="email" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.email" name="email" id="email" placeholder="Email *"
+                                    class="form-control rounded-pill" type="text"  formControlName="email" [ngClass]="{ 'is-invalid': submitted && frm.email.errors }">
+                                    <div *ngIf="submitted && frm.email.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.email.errors.required">Email is required</div>
+                                        <div *ngIf="frm.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="uscontactnumber" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.uscontactnumber" id="uscontactnumber" placeholder="Contact Number" name="uscontactnumber" 
+                                    class="form-control rounded-pill" type="text" formControlName="uscontactnumber" [ngClass]="{ 'is-invalid': submitted && frm.uscontactnumber.errors }">
+                                    <div *ngIf="submitted && frm.uscontactnumber.errors" class="invalid-feedback" >
+                                        <div *ngIf="frm.uscontactnumber.errors.required">contact Number Is Required</div>
+                                        <div *ngIf="frm.uscontactnumber.errors.pattern">Enter only number.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="visastatus" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.visastatus" name="visastatus" id="visastatus" class="form-select rounded-pill"
+                                     formControlName="visastatus" [ngClass]="{ 'is-invalid': submitted && frm.visastatus.errors }">
+                                     <option Value="">Select Visa Status</option> 
+                                        <option Value="1">H1B</option> 
+                                        <option Value="2">GC</option>
+                                      </select>
+                                    <div *ngIf="submitted && frm.visastatus.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.visastatus.errors.required">Visa Type is required</div>
+                                    </div>
+                                </div>
+                                 
+                                <div class="col-md-12"> 
+                                    <label for="totexp" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.totexp" id="totexp" name="totexp" placeholder="Total Experience" 
+                                    class="form-control rounded-pill" type="text"  formControlName="totexp" >
+                                </div>
+
+                               <div class="col-md-12"> 
+                                    <label for="currentlocation" class="form-label"></label> 
+                                    <input  required [(ngModel)]="consultant.currentlocation" id="currentlocation" name="currentlocation" placeholder="Current Location" 
+                                    class="form-control rounded-pill" type="text"  formControlName="currentlocation" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <div>
+                                      <label  class="form-label">Relocation</label> <br>
+                                      <input class="form-check-input" [(ngModel)]="consultant.relocate" formControlName="relocate" type="radio"  name="relocate"  value="Open" checked="true">
+                                      <label class="form-check-label" >Open</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                      <input class="form-check-input" [(ngModel)]="consultant.relocate" formControlName="relocate" type="radio" name="relocate"  value="No" >
+                                      <label class="form-check-label" >No</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                      <input class="form-check-input" type="radio" [(ngModel)]="consultant.relocate" formControlName="relocate" name="relocate"  value="Other" >
+                                      <label class="form-check-label" >Other</label>
+                                 
+                                    </div>
+                                </div>
+                                 <div class="col-md-12"> 
+                                    <label for="technology" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.technology" name="technology" id="technology" class="form-select rounded-pill"
+                                     formControlName="technology" [ngClass]="{ 'is-invalid': submitted && frm.technology.errors }">
+                                        <option Value="1">Net technology</option> 
+                                        <option Value="2">Java Technology</option>
+                                      </select>
+                                    <div *ngIf="submitted && frm.technology.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.technology.errors.required">Technology is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="othdet" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.additionalskills" class="form-control rounded-2" placeholder="Other Details" 
+                                    formControlName="additionalskills"  id="othdet" style="height: 100px;"></textarea>
+                                </div>  
+                            </div>
+
+
+                            <div class="col-md-6">
+                              <div class="col-md-12"> 
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype" formControlName="ratetype"  value="C2C" checked>
+                                <label class="form-check-label" >C2C</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" [(ngModel)]="consultant.ratetype" type="radio" name="ratetype" formControlName="ratetype"  value="1099" >
+                                <label class="form-check-label" >1099</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" formControlName="ratetype"  value="W2" >
+                                <label class="form-check-label" >W2</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" formControlName="ratetype"  value="Full Time" >
+                                <label class="form-check-label" >Full Time</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="form-check-input" type="radio" [(ngModel)]="consultant.ratetype"  name="ratetype" formControlName="ratetype"  value="C2H" >
+                                <label class="form-check-label" >C2H</label>
+                             </div>
+                               
+                               <div class="col-md-12"> 
+                                    <label for="hourlyrate2" class="form-label"></label> 
+                                    <input type="text"  [(ngModel)]="consultant.hourlyrate" id="hourlyrate2" formControlName="hourlyrate" name="hourlyrate" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="summary" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.summary" class="form-control rounded-2" placeholder="Summary" formControlName="summary"  name="summary"
+                                    id="summary" style="height: 100px;"></textarea>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="resumeFileName" class="form-label">Upload Resume</label> 
+                                    <input type="file"   [(ngModel)]="consultant.resumeFileName" id="resumeFileName" formControlName="resumeFileName" name="resumeFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="h1bFileName" class="form-label">Upload H1B</label> 
+                                    <input type="file"  [(ngModel)]="consultant.h1bFileName" id="h1bFileName" formControlName="h1bFileName" name="h1bFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="dlFileName" class="form-label">Upload DL</label> 
+                                    <input type="file"  [(ngModel)]="consultant.dlFileName" id="dlFileName" formControlName="dlFileName" name="dlFileName" placeholder="Hourly rate" class="form-control rounded-pill" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="priority" class="form-label"></label> 
+                                    <select required  [(ngModel)]="consultant.priority" name="priority" id="priority" class="form-select rounded-pill"
+                                    formControlName="priority" [ngClass]="{ 'is-invalid': submitted && frm.priority.errors }">
+                                        <option Value="p1">priority one</option> 
+                                        <option Value="p2">priority two</option>
+                                    </select>
+                                    <div *ngIf="submitted && frm.priority.errors" class="invalid-feedback">
+                                        <div *ngIf="frm.priority.errors.required">Priority is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label for="anyrestriction" class="form-label"></label> 
+                                    <textarea required [(ngModel)]="consultant.anyrestriction" class="form-control rounded-2" 
+                                    placeholder="Any Restrictions" formControlName="anyrestriction" name="anyrestriction"
+                                    id="anyrestriction" style="height: 100px;"></textarea>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a (click)="registerForm2.reset()" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" >Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

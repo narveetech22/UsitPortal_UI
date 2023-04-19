@@ -1,0 +1,91 @@
+<main id="main" class="main">
+    <div class="pagetitle">
+       <!-- <h1>Add New VMS</h1> -->
+       <nav>
+          <ol class="breadcrumb">
+             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+             <li class="breadcrumb-item">Employee</li>
+          </ol>
+       </nav>
+    </div>
+    <section class="section">
+       <div class="row">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h5 class="card-title"> New Employee</h5>
+                   <form  ><!--[formGroup]="registerForm"-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" class="form-control rounded-pill"  id="fullname" 
+                                    placeholder="Name (Full Legal Name) *" name="fullname" [(ngModel)]="employee.fullname" >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="pseudoname" 
+                                    placeholder="Psudo Name *" name="pseudoname" [(ngModel)]="employee.pseudoname">
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="email" 
+                                    placeholder="Email *" name="email" [(ngModel)]="employee.email">
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input maxlength="10" type="text" required  class="form-control rounded-pill"  id="personalcontactnumber" 
+                                    placeholder="Personal Contact Number *" name="personalcontactnumber" [(ngModel)]="employee.personalcontactnumber"
+                                     >
+                                </div>
+
+                               
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="col-md-12"> 
+                                    <input type="text" maxlength="10" class="form-control rounded-pill"  id="companycontactnumber" 
+                                    placeholder="Company Contact Number" name="companycontactnumber" [(ngModel)]="employee.companycontactnumber"
+                                  >
+                                </div>
+
+                                <div class="col-md-12"> 
+                                    <label></label>
+                                    <input type="text" class="form-control rounded-pill"  id="designation" 
+                                    placeholder="Designation" name="designation" [(ngModel)]="employee.designation">
+                                    
+                                </div>
+                                <div class="col-md-12"> 
+                                    <label for="role" class="form-label"></label> 
+                                    <select required  [(ngModel)]="employee.roleid" name="role" id="role" class="form-select rounded-pill">
+                                     <option value="">Select Role</option>
+                                     <option  value="1"  >Super Administrator</option>
+                                     <option  value="2"  >Administrator</option>
+                                     <option  value="3"  > Sales Manager</option>
+                                     <option  value="4"  > Recruiting Manager</option>
+                                     <option  value="5"  > Team Leader Sales</option>
+                                     <option  value="6"  > Team Leader Recruiting		</option>
+                                     <option  value="7"  > Sales Executive</option>
+                                     <option  value="8"  > Recruiter	</option>
+                                     <option  value="9"  > Guest	</option>
+                                     <option  value="10" > Independent	</option>
+                                     <option  value="11" > OPT Recruiter	</option>
+                                     <option  value="12" > Vendor</option>
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center" style="margin-top: 20px;padding: 10px;">
+                            <a href="https://narveetech.com/usit/recruiting/allvms" class="btn btn-warning rounded-pill">Cancel</a>
+                            &nbsp;
+                            <button type="submit" name="btnSubmit" class="btn btn-info rounded-pill" value="Submit" (click)="updateEmployee()">Submit</button>
+                        </div>
+                   </form>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>
